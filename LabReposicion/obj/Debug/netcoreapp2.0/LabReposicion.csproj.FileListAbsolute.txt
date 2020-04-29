@@ -1,0 +1,11 @@
+C:\Users\Edgar\source\repos\LabReposicion\LabReposicion\obj\Debug\netcoreapp2.0\LabReposicion.csproj.CoreCompileInputs.cache
+C:\Users\Edgar\source\repos\LabReposicion\LabReposicion\obj\Debug\netcoreapp2.0\LabReposicion.AssemblyInfoInputs.cache
+C:\Users\Edgar\source\repos\LabReposicion\LabReposicion\obj\Debug\netcoreapp2.0\LabReposicion.AssemblyInfo.cs
+C:\Users\Edgar\source\repos\LabReposicion\LabReposicion\bin\Debug\netcoreapp2.0\LabReposicion.deps.json
+C:\Users\Edgar\source\repos\LabReposicion\LabReposicion\bin\Debug\netcoreapp2.0\LabReposicion.runtimeconfig.json
+C:\Users\Edgar\source\repos\LabReposicion\LabReposicion\bin\Debug\netcoreapp2.0\LabReposicion.runtimeconfig.dev.json
+C:\Users\Edgar\source\repos\LabReposicion\LabReposicion\bin\Debug\netcoreapp2.0\LabReposicion.dll
+C:\Users\Edgar\source\repos\LabReposicion\LabReposicion\obj\Debug\netcoreapp2.0\LabReposicion.csprojAssemblyReference.cache
+C:\Users\Edgar\source\repos\LabReposicion\LabReposicion\bin\Debug\netcoreapp2.0\LabReposicion.pdb
+C:\Users\Edgar\source\repos\LabReposicion\LabReposicion\obj\Debug\netcoreapp2.0\LabReposicion.dll
+C:\Users\Edgar\source\repos\LabReposicion\LabReposicion\obj\Debug\netcoreapp2.0\LabReposicion.pdb

@@ -7,16 +7,16 @@ EXPOSE 80
 
 FROM microsoft/aspnetcore-build:2.0-nanoserver-1803 AS build
 WORKDIR /src
-COPY ["WebApplication1/WebApplication1.csproj", "WebApplication1/"]
-RUN dotnet restore "WebApplication1/WebApplication1.csproj"
+COPY ["LabReposicion/LabReposicion.csproj", "LabReposicion/"]
+RUN dotnet restore "LabReposicion/LabReposicion.csproj"
 COPY . .
-WORKDIR "/src/WebApplication1"
-RUN dotnet build "WebApplication1.csproj" -c Release -o /app
+WORKDIR "/src/LabReposicion"
+RUN dotnet build "LabReposicion.csproj" -c Release -o /app
 
 FROM build AS publish
-RUN dotnet publish "WebApplication1.csproj" -c Release -o /app
+RUN dotnet publish "LabReposicion.csproj" -c Release -o /app
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app .
-ENTRYPOINT ["dotnet", "WebApplication1.dll"]
+ENTRYPOINT ["dotnet", "LabReposicion.dll"]
