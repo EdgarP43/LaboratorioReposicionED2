@@ -13693,11 +13693,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Edgar\\source\\repos\\LabReposicion\\LabReposicion\\LabReposicion.csproj",
+      "projectUniqueName": "C:\\Users\\Edgar\\Desktop\\otraprueba\\LabReposicion\\LabReposicion.csproj",
       "projectName": "LabReposicion",
-      "projectPath": "C:\\Users\\Edgar\\source\\repos\\LabReposicion\\LabReposicion\\LabReposicion.csproj",
+      "projectPath": "C:\\Users\\Edgar\\Desktop\\otraprueba\\LabReposicion\\LabReposicion.csproj",
       "packagesPath": "C:\\Users\\Edgar\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Edgar\\source\\repos\\LabReposicion\\LabReposicion\\obj\\",
+      "outputPath": "C:\\Users\\Edgar\\Desktop\\otraprueba\\LabReposicion\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
