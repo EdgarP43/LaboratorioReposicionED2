@@ -15,17 +15,17 @@ namespace LabReposicion.Controllers
 {
     public class ZigZagData
     {
-        public string NombreArchivo { get; set; }
+        public string RutaArchivo { get; set; }
         public int Niveles { get; set; }
     }
     public class EspiralData
     {
-        public string NombreArchivo { get; set; }
+        public string RutaArchivo { get; set; }
         public int Filas { get; set; }
     }
     public class CesarData
     {
-        public string NombreArchivo { get; set; }
+        public string RutaArchivo { get; set; }
         public string Clave { get; set; }
     }
     [Produces("application/json")]
@@ -47,17 +47,18 @@ namespace LabReposicion.Controllers
         }
 
         // POST api/values
-        [Route("ZigZagCif")]
+        [Route("cipher/zigzag")]
         [HttpPost]
         public void CargarParaCifrarZigZag([FromBody] object Cifrar)
         {
             var a = JsonConvert.SerializeObject(Cifrar);
             ZigZagData Zigzag = JsonConvert.DeserializeObject<ZigZagData>(a);
             ZigZag modelo = new ZigZag();
-            var nombreArchivo = Zigzag.NombreArchivo.Split('.');
-            var nombre = nombreArchivo[0];
-            var rutaArchivo = Path.GetFullPath(Zigzag.NombreArchivo);
-            var rutaCif = Path.GetFullPath("Archivos Cifrados\\" + nombre + ".zig");
+            var vec1 = Zigzag.RutaArchivo.Split("/");
+            var vec2 = vec1[vec1.Length - 1].Split(".");
+            var nombre = vec2[0];
+            var rutaArchivo = Zigzag.RutaArchivo;
+            var rutaCif = Path.GetFullPath("Archivos Cifrados\\" + "Zigzag" + nombre + ".txt");
             var Archivo = new FileStream(rutaArchivo, FileMode.OpenOrCreate);
             using (var lectura = new BinaryReader(Archivo))
             {
@@ -79,17 +80,18 @@ namespace LabReposicion.Controllers
             }
         }
 
-        [Route("ZigZagDescif")]
+        [Route("descipher/zigzag")]
         [HttpPost]
         public void CargarParaDescifrarZig([FromBody] object Descifrar)
         {
             var a = JsonConvert.SerializeObject(Descifrar);
             ZigZagData Zigzag = JsonConvert.DeserializeObject<ZigZagData>(a);
+            var vec1 = Zigzag.RutaArchivo.Split("/");
+            var vec2 = vec1[vec1.Length - 1].Split(".");
             var cantNiveles = Convert.ToInt32(Zigzag.Niveles);
-            var nombreArchivo = Zigzag.NombreArchivo.Split('.');
-            var nombre = nombreArchivo[0];
-            var ubicacion = Path.GetFullPath("Archivos Cifrados\\" + Zigzag.NombreArchivo);
-            var ubicacionCifrados = Path.GetFullPath("Archivos Descifrados\\" + nombre + ".zig");
+            var nombre = vec2[0];
+            var ubicacion = Zigzag.RutaArchivo;
+            var ubicacionCifrados = Path.GetFullPath("Archivos Descifrados\\" + nombre + ".txt");
 
             ZigZag zigzag = new ZigZag();
             var Archivo = new FileStream(ubicacion, FileMode.OpenOrCreate);
@@ -115,39 +117,39 @@ namespace LabReposicion.Controllers
             Archivo.Close();
         }
 
-        [Route("EspiralCif")]
+        [Route("cipher/ruta")]
         [HttpPost]
         public void CargaParaCifrarEspi([FromBody] object Cifrar)
         {
             var a = JsonConvert.SerializeObject(Cifrar);
             EspiralData Espiral = JsonConvert.DeserializeObject<EspiralData>(a);
             var cantFilas = Convert.ToInt32(Espiral.Filas);
-            var nombreDocumento = Espiral.NombreArchivo;
-            var NombreArray = nombreDocumento.Split('.');
-            var ubicacion = Path.GetFullPath(nombreDocumento);
+            var vec1 = Espiral.RutaArchivo.Split("/");
+            var vec2 = vec1[vec1.Length - 1].Split(".");
+            var ubicacion = Espiral.RutaArchivo;
             var ubicacionCifrados = Path.GetFullPath("Archivos Cifrados\\");
 
             Espiral espiral = new Espiral();
-            espiral.CifradoCorrecto(ubicacion, NombreArray, ubicacionCifrados, cantFilas);
+            espiral.CifradoCorrecto(ubicacion, vec2, ubicacionCifrados, cantFilas);
         }
 
-        [Route("EspiralDescif")]
+        [Route("descipher/ruta")]
         [HttpPost]
         public void CargaParaDescifrarEspi([FromBody] object Descifrar)
         {
             var a = JsonConvert.SerializeObject(Descifrar);
             EspiralData Espiral = JsonConvert.DeserializeObject<EspiralData>(a);
             var cantFilas = Convert.ToInt32(Espiral.Filas);
-            var nombreDocumento = Espiral.NombreArchivo;
-            var NombreArray = nombreDocumento.Split('.');
-            var ubicacion = Path.GetFullPath("Archivos Cifrados\\" + Espiral.NombreArchivo);
+            var vec1 = Espiral.RutaArchivo.Split("/");
+            var vec2 = vec1[vec1.Length - 1].Split(".");
+            var ubicacion = Espiral.RutaArchivo;
             var ubicacionCifrados = Path.GetFullPath("Archivos Descifrados\\");
 
             Espiral espiral = new Espiral();
-            espiral.DescifradoCorrecto(ubicacion, NombreArray, ubicacionCifrados, cantFilas);
+            espiral.DescifradoCorrecto(ubicacion, vec2, ubicacionCifrados, cantFilas);
         }
 
-        [Route("CesarCif")]
+        [Route("cipher/caesar")]
         [HttpPost]
         public void CargaParaCifrarCesar([FromBody] object Cifrar)
         {
@@ -155,24 +157,23 @@ namespace LabReposicion.Controllers
             CesarData Cesar = JsonConvert.DeserializeObject<CesarData>(a);
             Cesar nuevoCesar = new Cesar();
             var ClaveArray = Cesar.Clave.ToCharArray();
-
-            var NombreDocumento = Cesar.NombreArchivo;
+            var vec1 = Cesar.RutaArchivo.Split("/");
+            var vec2 = vec1[vec1.Length - 1].Split(".");
             var extension = "Cesar";
-            var ArrayNombre = NombreDocumento.Split('.');
             var Cifrado = true;
             var ClaveByteArray = Encoding.Default.GetBytes(ClaveArray);
 
-            var ubicacion = Path.GetFullPath(NombreDocumento);
+            var ubicacion = Cesar.RutaArchivo;
             var ubicacionCifrados = Path.GetFullPath("Archivos Cifrados\\");
 
 
             var AbecedarioArray = nuevoCesar.Abecedario();
             var NuevoAbecedario = nuevoCesar.AbecedarioModificado(ClaveByteArray, AbecedarioArray.Length, AbecedarioArray);
             var DiccionarioDeCaracteres = nuevoCesar.FormandoDiccionario(AbecedarioArray, NuevoAbecedario);
-            nuevoCesar.CifrarMensaje(ClaveArray, ubicacion, ubicacionCifrados, ArrayNombre, DiccionarioDeCaracteres, extension, Cifrado);
+            nuevoCesar.CifrarMensaje(ClaveArray, ubicacion, ubicacionCifrados, vec2, DiccionarioDeCaracteres, extension, Cifrado);
         }
 
-        [Route("CesarDescif")]
+        [Route("descipher/caesar")]
         [HttpPost]
         public void CargaParaDescifrarCesar([FromBody] object Descifrar)
         {
@@ -180,21 +181,20 @@ namespace LabReposicion.Controllers
             CesarData Cesar = JsonConvert.DeserializeObject<CesarData>(a);
             Cesar nuevoCesar = new Cesar();
             var ClaveArray = Cesar.Clave.ToCharArray();
-
-            var NombreDocumento = Cesar.NombreArchivo;
+            var vec1 = Cesar.RutaArchivo.Split("/");
+            var vec2 = vec1[vec1.Length - 1].Split(".");
             var extension = "Cesar";
-            var ArrayNombre = NombreDocumento.Split('.');
             var cifrado = false;
             var ClaveByteArray = Encoding.Default.GetBytes(ClaveArray);
 
-            var ubicacion = Path.GetFullPath("Archivos Cifrados\\" + Cesar.NombreArchivo);
+            var ubicacion = Cesar.RutaArchivo;
             var ubicacionCifrados = Path.GetFullPath("Archivos Descifrados\\");
 
             var AbecedarioArray = nuevoCesar.Abecedario();
             var NuevoAbecedario = nuevoCesar.AbecedarioModificado(ClaveByteArray, AbecedarioArray.Length, AbecedarioArray);
             var DiccionarioInvertido = nuevoCesar.FormandoDiccionario(NuevoAbecedario, AbecedarioArray);
 
-            nuevoCesar.CifrarMensaje(ClaveArray, ubicacion, ubicacionCifrados, ArrayNombre, DiccionarioInvertido, extension, cifrado);
+            nuevoCesar.CifrarMensaje(ClaveArray, ubicacion, ubicacionCifrados, vec2, DiccionarioInvertido, extension, cifrado);
         }
 
     }
