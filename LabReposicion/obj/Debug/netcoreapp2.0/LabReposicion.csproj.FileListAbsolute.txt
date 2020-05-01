@@ -9,3 +9,14 @@ C:\Users\Edgar\source\repos\LabReposicion\LabReposicion\obj\Debug\netcoreapp2.0\
 C:\Users\Edgar\source\repos\LabReposicion\LabReposicion\bin\Debug\netcoreapp2.0\LabReposicion.pdb
 C:\Users\Edgar\source\repos\LabReposicion\LabReposicion\obj\Debug\netcoreapp2.0\LabReposicion.dll
 C:\Users\Edgar\source\repos\LabReposicion\LabReposicion\obj\Debug\netcoreapp2.0\LabReposicion.pdb
+D:\Escritorio\LaboRepoEDII\LabReposicion\bin\Debug\netcoreapp2.0\LabReposicion.deps.json
+D:\Escritorio\LaboRepoEDII\LabReposicion\bin\Debug\netcoreapp2.0\LabReposicion.runtimeconfig.json
+D:\Escritorio\LaboRepoEDII\LabReposicion\bin\Debug\netcoreapp2.0\LabReposicion.runtimeconfig.dev.json
+D:\Escritorio\LaboRepoEDII\LabReposicion\bin\Debug\netcoreapp2.0\LabReposicion.dll
+D:\Escritorio\LaboRepoEDII\LabReposicion\bin\Debug\netcoreapp2.0\LabReposicion.pdb
+D:\Escritorio\LaboRepoEDII\LabReposicion\obj\Debug\netcoreapp2.0\LabReposicion.csprojAssemblyReference.cache
+D:\Escritorio\LaboRepoEDII\LabReposicion\obj\Debug\netcoreapp2.0\LabReposicion.csproj.CoreCompileInputs.cache
+D:\Escritorio\LaboRepoEDII\LabReposicion\obj\Debug\netcoreapp2.0\LabReposicion.AssemblyInfoInputs.cache
+D:\Escritorio\LaboRepoEDII\LabReposicion\obj\Debug\netcoreapp2.0\LabReposicion.AssemblyInfo.cs
+D:\Escritorio\LaboRepoEDII\LabReposicion\obj\Debug\netcoreapp2.0\LabReposicion.dll
+D:\Escritorio\LaboRepoEDII\LabReposicion\obj\Debug\netcoreapp2.0\LabReposicion.pdb
