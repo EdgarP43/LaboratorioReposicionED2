@@ -78,7 +78,7 @@ namespace LabReposicion.Controllers
             var vec = rsa.RutaArchivo.Split("/");
             var vec2 = vec[vec.Length - 1].Split(".");
             var nombre = vec2[0];
-            var rutaCif = Path.GetFullPath("Cifrados\\" + vec[vec.Length - 1]);
+            var rutaCif = Path.GetFullPath("CifradosRSA\\" + vec[vec.Length - 1]);
             var rutaLlaves = Path.GetFullPath("Llaves\\" + nombre + ".Keys");
             RSA modelo = new RSA();
             var Kpub = modelo.LecturaLLaves(rutaLlaves)[0];
@@ -99,7 +99,7 @@ namespace LabReposicion.Controllers
             var vec = rsa.RutaArchivo.Split("/");
             var vec2 = vec[vec.Length - 1].Split(".");
             var nombre = vec2[0];
-            var rutaDescif = Path.GetFullPath("Descifrados\\" + vec[vec.Length - 1]);
+            var rutaDescif = Path.GetFullPath("DescifradosRSA\\" + vec[vec.Length - 1]);
             var rutaLlaves = Path.GetFullPath("Llaves\\" + nombre + ".Keys");
             RSA modelo = new RSA();
             var kpriv = modelo.LecturaLLaves(rutaLlaves)[1];
