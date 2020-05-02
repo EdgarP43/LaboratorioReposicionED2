@@ -29,7 +29,7 @@ namespace LabReposicion.Huffman
         public Dictionary<string, Archivo> DatosDeArchivos = new Dictionary<string, Archivo>();
         public Dictionary<string, byte> CodigoPD = new Dictionary<string, byte>();
         const int bufferLength = 1000;
-        public int CompresiónHuffman(string path, string[] nombreArchivo, string pathHuffman)
+        public int CompresiónHuffman(string path, string[] nombreArchivo, string pathHuffman, string NombreNuevo)
         {
             var ListaNodos = new List<Nodo>();
             var Frecuencias = new Dictionary<byte, int>();
@@ -108,7 +108,7 @@ namespace LabReposicion.Huffman
             {
                 using (var reader = new BinaryReader(stream))
                 {
-                    using (var writeStream = new FileStream($"{pathHuffman}/{nombreArchivo[0]}.huff", FileMode.OpenOrCreate))
+                    using (var writeStream = new FileStream($"{pathHuffman}/{NombreNuevo}.huff", FileMode.OpenOrCreate))
                     {
                         using (var writer = new BinaryWriter(writeStream))
                         {
@@ -258,4 +258,5 @@ namespace LabReposicion.Huffman
             return 1;
         }
     }
+
 }

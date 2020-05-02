@@ -11,10 +11,14 @@ namespace LabReposicion.Data
         public double Razon { get; set; }
         public double Factor { get; set; }
         public double Porcentaje { get; set; }
+        public string NuevoNombre { get; set; }
+        public string RutaNuevoNombre { get; set; }
 
         public Archivo()
         {
             NombreArchivo = "";
+            RutaNuevoNombre = "";
+            NuevoNombre = "";
             Razon = 0;
             Factor = 0;
             Porcentaje = 0;

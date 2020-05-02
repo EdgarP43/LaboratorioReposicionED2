@@ -27,16 +27,10 @@ namespace LabReposicion.Controllers
     [Route("api/RSACesar")]
     public class RSACesarController : Controller
     {
-        // GET api/values
-        [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
 
         // GET api/values/5
         [HttpGet("cipher/getPublicKey")]
-        public ActionResult<IEnumerable<string>> Getcesar([FromBody] object Cifrar)
+        public string[] Getcesar([FromBody] object Cifrar)
         {
             var a = JsonConvert.SerializeObject(Cifrar);
             ArchivoData rsa = JsonConvert.DeserializeObject<ArchivoData>(a);
