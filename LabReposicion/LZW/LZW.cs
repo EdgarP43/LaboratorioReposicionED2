@@ -11,13 +11,13 @@ namespace LabReposicion.LZW
     {
         const int bufferLength = 1000000;
 
-        static public void EscribirLZW(Dictionary<string, int> DiccionarioOriginal, int indice, string RutaOriginal, string[] NombreArchivo, string UbicacionAAlmacenarLZW)
+        static public void EscribirLZW(Dictionary<string, int> DiccionarioOriginal, int indice, string RutaOriginal, string[] NombreArchivo, string UbicacionAAlmacenarLZW, string NuevoNombre)
         {
             using (var stream = new FileStream(RutaOriginal, FileMode.Open))
             {
                 using (var reader = new BinaryReader(stream))
                 {
-                    using (var streamWriter = new FileStream($"{UbicacionAAlmacenarLZW}/{NombreArchivo[0]}.lzw", FileMode.OpenOrCreate))
+                    using (var streamWriter = new FileStream($"{UbicacionAAlmacenarLZW}/{NuevoNombre}.lzw", FileMode.OpenOrCreate))
                     {
                         using (var writer = new BinaryWriter(streamWriter))
                         {
@@ -86,7 +86,7 @@ namespace LabReposicion.LZW
                 }
             }
         }
-        static public int Comprimir(string RutaOriginal, string[] NombreArchivo, string UbicacionAAlmacenarLZW)
+        static public int Comprimir(string RutaOriginal, string[] NombreArchivo, string UbicacionAAlmacenarLZW, string NuevoNombre)
         {
             var diccionarioOriginal = new Dictionary<string, int>();
             var indice = 1;
@@ -95,7 +95,7 @@ namespace LabReposicion.LZW
             diccionarioOriginal = ObtenerDiccionarioCaracteresEspeciales(RutaOriginal, ref indice);
             valorDiccionario = indice;
 
-            EscribirLZW(diccionarioOriginal, valorDiccionario, RutaOriginal, NombreArchivo, UbicacionAAlmacenarLZW);
+            EscribirLZW(diccionarioOriginal, valorDiccionario, RutaOriginal, NombreArchivo, UbicacionAAlmacenarLZW, NuevoNombre);
 
             return 1;
         }
