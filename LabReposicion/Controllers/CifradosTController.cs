@@ -47,7 +47,7 @@ namespace LabReposicion.Controllers
         }
 
         // POST api/values
-        [Route("ZigZagCif")]
+        [Route("cipher/Zigzag")]
         [HttpPost]
         public void CargarParaCifrarZigZag([FromBody] object Cifrar)
         {
@@ -79,7 +79,7 @@ namespace LabReposicion.Controllers
             }
         }
 
-        [Route("ZigZagDescif")]
+        [Route("descipher/Zigzag")]
         [HttpPost]
         public void CargarParaDescifrarZig([FromBody] object Descifrar)
         {
@@ -115,7 +115,7 @@ namespace LabReposicion.Controllers
             Archivo.Close();
         }
 
-        [Route("EspiralCif")]
+        [Route("cipher/ruta")]
         [HttpPost]
         public void CargaParaCifrarEspi([FromBody] object Cifrar)
         {
@@ -131,7 +131,7 @@ namespace LabReposicion.Controllers
             espiral.CifradoCorrecto(ubicacion, NombreArray, ubicacionCifrados, cantFilas);
         }
 
-        [Route("EspiralDescif")]
+        [Route("descipher/ruta")]
         [HttpPost]
         public void CargaParaDescifrarEspi([FromBody] object Descifrar)
         {
@@ -147,7 +147,7 @@ namespace LabReposicion.Controllers
             espiral.DescifradoCorrecto(ubicacion, NombreArray, ubicacionCifrados, cantFilas);
         }
 
-        [Route("CesarCif")]
+        [Route("cipher/caesar")]
         [HttpPost]
         public void CargaParaCifrarCesar([FromBody] object Cifrar)
         {
@@ -172,7 +172,7 @@ namespace LabReposicion.Controllers
             nuevoCesar.CifrarMensaje(ClaveArray, ubicacion, ubicacionCifrados, ArrayNombre, DiccionarioDeCaracteres, extension, Cifrado);
         }
 
-        [Route("CesarDescif")]
+        [Route("descipher/caesar")]
         [HttpPost]
         public void CargaParaDescifrarCesar([FromBody] object Descifrar)
         {
